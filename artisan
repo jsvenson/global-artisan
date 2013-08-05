@@ -1,0 +1,21 @@
+#!/usr/bin/env php
+<?php 
+
+$cmd = null;
+
+while ($cmd == '' && getcwd() != '/') {
+  if (file_exists(getcwd() . '/artisan')) $cmd = getcwd() . '/artisan';
+  else chdir('../');
+}
+
+if (is_null($cmd)) {
+  echo "fatal: Not a laravel project.\n";
+  return 1;
+}
+
+$args = $argv;
+array_shift($args);
+
+$result = system('/usr/bin/env php ' . implode(' ', array_merge((array)$cmd, $args)));
+
+return $result === false? 1 : 0;
