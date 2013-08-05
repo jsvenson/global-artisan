@@ -14,10 +14,10 @@ Set the execute bit.
 
 ###Usage
 
-You can call artisan from inside any directory in your Laravel 4 project. Where before you would create a new migration like this
+You can call artisan from inside any directory in your Laravel 4 project. Where before you would need to be in the project root to create a new migration
 
     php artisan migrate:make --create create_my_new_table
 
-You can now just call it like this
+you can now call it from within any of the project subdirectories like this
 
     artisan migrate:make --create create_my_new_table
