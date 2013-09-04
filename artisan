@@ -15,6 +15,7 @@ if (is_null($cmd)) {
 
 $args = $argv;
 array_shift($args);
+array_walk($args, function(&$el) { $el = escapeshellarg($el); });
 
 $result = system('/usr/bin/env php ' . implode(' ', array_merge((array)$cmd, $args)));
 
